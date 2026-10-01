@@ -38,6 +38,7 @@
       "resume": "Cette activité académique n'a pas encore débuté. Les consignes et la réalisation technique seront mises en ligne dès le lancement par l'établissement.",
       "techs": ["BTS SIO SLAM", "En attente"],
       "imageMiniature": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&auto=format&fit=crop&q=80",
+      "hasGithub": true,
       "details": {
         "contexte": "Cette réalisation académique sera initiée au cours du semestre dans le cadre des ateliers professionnels encadrés.",
         "points": [
@@ -57,6 +58,7 @@
       "resume": "Ce projet professionnel sera réalisé au cours de mon premier stage en entreprise, répondant à un besoin métier réel en développement ou intégration web.",
       "techs": ["Stage 1re année", "Mission pro"],
       "imageMiniature": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=600&auto=format&fit=crop&q=80",
+      "hasGithub": true,
       "details": {
         "contexte": "Projet mené dans le cadre de mon stage conventionné de 4 à 5 semaines en entreprise.",
         "points": [
@@ -76,6 +78,7 @@
       "resume": "Conception d'un jeu interactif sous Roblox Studio : logique événementielle en Lua, synchronisation client-serveur et interface adaptative.",
       "techs": ["Lua", "Roblox Studio", "Game Design"],
       "imageMiniature": "image-projets/roblox/capture1.jpg",
+      "hasGithub": false,
       "details": {
         "contexte": "Projet de jeu d'action multijoueur en ligne sous Roblox Studio, exploitant la programmation orientée objet en Lua et la synchronisation réseau en temps réel.",
         "points": [
