@@ -1,176 +1,216 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Détection dynamique de la section active pour le Dock en bas
+  // 1. Détection fluide de la navigation (requestAnimationFrame)
   const sections = document.querySelectorAll("section");
   const dockLinks = document.querySelectorAll(".dock-link");
+  let ticking = false;
 
-  const updateActiveDock = () => {
-    let current = "";
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 250;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        let current = "";
+        sections.forEach((section) => {
+          if (window.scrollY >= section.offsetTop - 250) {
+            current = section.getAttribute("id");
+          }
+        });
+        dockLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+        });
 
-    dockLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
-    });
-  };
+        // Animations au défilement fluides (descente et remontée)
+        document.querySelectorAll(".reveal").forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.9 && rect.bottom > 40) {
+            el.classList.add("visible");
+          } else {
+            el.classList.remove("visible");
+          }
+        });
 
-  window.addEventListener("scroll", updateActiveDock);
-  updateActiveDock();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
 
-  // 2. Animations bidirectionnelles (apparition à la descente ET à la remontée)
-  const revealElements = document.querySelectorAll(".reveal");
+  // 2. Chargement des données dynamiques depuis data.json
+  fetch("data.json")
+    .then((res) => res.json())
+    .then((data) => {
+      initCertifications(data.certifications);
+      initProjects(data.projets);
+    })
+    .catch((err) => console.error("Erreur de chargement de data.json :", err));
 
-  const handleScrollAnimation = () => {
-    const triggerBottom = window.innerHeight * 0.88;
-    const triggerTop = 60;
-
-    revealElements.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < triggerBottom && rect.bottom > triggerTop) {
-        el.classList.add("visible");
-      } else {
-        el.classList.remove("visible");
-      }
-    });
-  };
-
-  window.addEventListener("scroll", handleScrollAnimation);
-  window.addEventListener("resize", handleScrollAnimation);
-  handleScrollAnimation();
-
-  // 3. Carrousel vertical 3D pour les Certifications (Molette + Clic)
-  const carousel = document.getElementById("certifCarousel");
-  if (carousel) {
-    const slides = carousel.querySelectorAll(".v-slide");
+  // 3. Initialisation du Carrousel vertical
+  function initCertifications(certs) {
+    const carousel = document.getElementById("certifCarousel");
     const dotsContainer = document.getElementById("carouselDots");
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    let isThrottled = false;
+    if (!carousel) return;
 
+    carousel.innerHTML = "";
     dotsContainer.innerHTML = "";
-    slides.forEach((_, i) => {
+
+    certs.forEach((cert, i) => {
+      const slide = document.createElement("div");
+      slide.className = "certif-card liquid-card v-slide";
+      slide.setAttribute("data-index", i);
+      slide.innerHTML = `
+        <div class="certif-logo-wrap">
+          <div class="certif-logo-oc" style="background: ${cert.couleur}">
+            <i class="fa-solid ${cert.icone}"></i>
+            <span>${cert.organisme}</span>
+          </div>
+        </div>
+        <div class="certif-content">
+          <div class="certif-header">
+            <h3>${cert.titre}</h3>
+            <span class="${cert.statut === "Obtenue" ? "badge-status-green" : "badge-status-pending"}">${cert.statut}</span>
+          </div>
+          <p class="certif-desc">${cert.description}</p>
+          <span class="certif-meta">${cert.organisme} - ${cert.date}</span>
+        </div>
+      `;
+      carousel.appendChild(slide);
+
       const dot = document.createElement("div");
-      dot.classList.add("v-dot");
-      if (i === 0) dot.classList.add("active");
+      dot.className = "v-dot" + (i === 0 ? " active" : "");
       dot.addEventListener("click", () => updateCarousel(i));
       dotsContainer.appendChild(dot);
     });
 
+    const slides = carousel.querySelectorAll(".v-slide");
     const dots = dotsContainer.querySelectorAll(".v-dot");
+    let currentIndex = 0;
+    const total = slides.length;
+    let isThrottled = false;
 
-    const updateCarousel = (newIndex) => {
-      currentIndex = (newIndex + totalSlides) % totalSlides;
-
+    function updateCarousel(newIdx) {
+      currentIndex = (newIdx + total) % total;
       slides.forEach((slide, i) => {
         slide.className = "certif-card liquid-card v-slide";
-
-        const diff = (i - currentIndex + totalSlides) % totalSlides;
-
-        if (diff === 0) {
-          slide.classList.add("active");
-        } else if (diff === totalSlides - 1) {
-          slide.classList.add("prev");
-        } else if (diff === 1) {
-          slide.classList.add("next");
-        } else if (diff > 1 && diff <= totalSlides / 2) {
-          slide.classList.add("hidden-bottom");
-        } else {
-          slide.classList.add("hidden-top");
-        }
+        const diff = (i - currentIndex + total) % total;
+        if (diff === 0) slide.classList.add("active");
+        else if (diff === total - 1) slide.classList.add("prev");
+        else if (diff === 1) slide.classList.add("next");
+        else if (diff > 1 && diff <= total / 2) slide.classList.add("hidden-bottom");
+        else slide.classList.add("hidden-top");
       });
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
+    }
 
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentIndex);
-      });
-    };
+    carousel.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      if (isThrottled) return;
+      isThrottled = true;
+      setTimeout(() => (isThrottled = false), 250);
+      updateCarousel(e.deltaY > 0 ? currentIndex + 1 : currentIndex - 1);
+    }, { passive: false });
 
-    carousel.addEventListener(
-      "wheel",
-      (e) => {
-        e.preventDefault();
-        if (isThrottled) return;
-
-        isThrottled = true;
-        setTimeout(() => {
-          isThrottled = false;
-        }, 320);
-
-        if (e.deltaY > 0) {
-          updateCarousel(currentIndex + 1);
-        } else {
-          updateCarousel(currentIndex - 1);
-        }
-      },
-      { passive: false }
-    );
-
-    slides.forEach((slide) => {
-      slide.addEventListener("click", () => {
-        const slideIndex = parseInt(slide.getAttribute("data-index"), 10);
-        if (slideIndex !== currentIndex) {
-          updateCarousel(slideIndex);
-        }
-      });
+    slides.forEach((s) => {
+      s.addEventListener("click", () => updateCarousel(parseInt(s.getAttribute("data-index"), 10)));
     });
 
     updateCarousel(0);
   }
 
-  // 4. Filtrage dynamique des Projets
-  const filterTabs = document.querySelectorAll(".filter-tab");
-  const projectBoxes = document.querySelectorAll(".project-box");
+  // 4. Initialisation des Projets et de leurs Modales
+  function initProjects(projets) {
+    const container = document.getElementById("projectsContainer");
+    const modalsContainer = document.getElementById("dynamicModalsContainer");
+    if (!container) return;
 
+    container.innerHTML = "";
+    modalsContainer.innerHTML = "";
+
+    projets.forEach((p) => {
+      // Carte projet
+      const card = document.createElement("div");
+      card.className = "project-box liquid-card";
+      card.setAttribute("data-category", p.categorie);
+      card.innerHTML = `
+        <div class="project-img-container">
+          <img src="${p.imageMiniature}" alt="${p.titre}" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80'">
+          <span class="tag-context liquid-pill">${p.tag}</span>
+        </div>
+        <div class="project-info">
+          <span class="date-lbl">${p.date}</span>
+          <h3>${p.titre}</h3>
+          <p>${p.resume}</p>
+          <div class="tech-pills">
+            ${p.techs.map((t) => `<span>${t}</span>`).join("")}
+          </div>
+          <div class="project-actions">
+            <button class="btn btn-purple-sm btn-liquid open-modal" data-target="modal-${p.id}">
+              <i class="fa-solid fa-circle-info"></i> Plus d'infos
+            </button>
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+
+      // Fenêtre modale du projet
+      const modal = document.createElement("div");
+      modal.className = "modal-backdrop";
+      modal.id = `modal-${p.id}`;
+      modal.innerHTML = `
+        <div class="modal-box liquid-card">
+          <button class="close-btn">&times;</button>
+          <span class="badge-tag liquid-pill">${p.tag}</span>
+          <h2>${p.titre}</h2>
+          <p class="modal-period">${p.date}</p>
+          ${
+            p.details.images && p.details.images.length > 0
+              ? `<div class="screenshots-grid">
+                  ${p.details.images.map((img) => `<img src="${img}" alt="Capture d'écran" onerror="this.style.display='none'">`).join("")}
+                </div>`
+              : ""
+          }
+          <h4>Détails du projet</h4>
+          <p class="modal-txt">${p.details.contexte}</p>
+          <h4>Points clés</h4>
+          <ul class="skills-covered">
+            ${p.details.points.map((pt) => `<li><i class="fa-solid fa-check purple-icon"></i> ${pt}</li>`).join("")}
+          </ul>
+        </div>
+      `;
+      modalsContainer.appendChild(modal);
+    });
+
+    attachModalEvents();
+  }
+
+  // 5. Gestion des filtres et modales
+  const filterTabs = document.querySelectorAll(".filter-tab");
   filterTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       filterTabs.forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
-
       const filter = tab.getAttribute("data-filter");
-
-      projectBoxes.forEach((box) => {
-        if (filter === "all" || box.getAttribute("data-category") === filter) {
-          box.style.display = "flex";
-        } else {
-          box.style.display = "none";
-        }
+      document.querySelectorAll(".project-box").forEach((box) => {
+        box.style.display = (filter === "all" || box.getAttribute("data-category") === filter) ? "flex" : "none";
       });
     });
   });
 
-  // 5. Gestion de toutes les Modales
-  const openBtns = document.querySelectorAll(".open-modal");
-  const closeBtns = document.querySelectorAll(".close-btn");
-  const backdrops = document.querySelectorAll(".modal-backdrop");
-  const modalAnchorLinks = document.querySelectorAll(".modal-anchor-link");
-
-  openBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const target = document.getElementById(btn.getAttribute("data-target"));
-      if (target) target.style.display = "flex";
+  function attachModalEvents() {
+    document.querySelectorAll(".open-modal").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const target = document.getElementById(btn.getAttribute("data-target"));
+        if (target) target.style.display = "flex";
+      });
     });
-  });
 
-  closeBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      backdrops.forEach((b) => (b.style.display = "none"));
+    document.querySelectorAll(".close-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".modal-backdrop").forEach((m) => (m.style.display = "none"));
+      });
     });
-  });
 
-  modalAnchorLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      backdrops.forEach((b) => (b.style.display = "none"));
+    window.addEventListener("click", (e) => {
+      document.querySelectorAll(".modal-backdrop").forEach((m) => {
+        if (e.target === m) m.style.display = "none";
+      });
     });
-  });
-
-  window.addEventListener("click", (e) => {
-    backdrops.forEach((b) => {
-      if (e.target === b) b.style.display = "none";
-    });
-  });
+  }
 });
