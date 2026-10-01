@@ -12,14 +12,13 @@
 </head>
 <body>
 
-  <!-- Arrière-plan animé Liquid Mesh -->
+  <!-- Arrière-plan fluide sans saccades -->
   <div class="liquid-bg">
     <div class="liquid-orb orb-1"></div>
     <div class="liquid-orb orb-2"></div>
-    <div class="liquid-orb orb-3"></div>
   </div>
 
-  <!-- Barre de navigation flottante en bas (Liquid Dock) -->
+  <!-- Barre de navigation flottante -->
   <nav class="bottom-dock-nav">
     <ul class="dock-list">
       <li><a href="#accueil" class="dock-link active" data-tooltip="Accueil"><i class="fa-solid fa-house"></i></a></li>
@@ -69,7 +68,6 @@
             Mon expérience en logistique chez Carrefour m'a appris l'exigence du travail d'équipe, le sens des priorités et la rigueur dans le respect des processus opérationnels.
           </p>
 
-          <!-- Centres d'intérêt -->
           <div class="interests-block">
             <h4>Centres d'intérêt</h4>
             <div class="interests-tags">
@@ -86,7 +84,7 @@
           <h3>Stage en développement d'applications</h3>
           <ul>
             <li><i class="fa-solid fa-clock"></i> <strong>Durée :</strong> 4 à 5 semaines</li>
-            <li><i class="fa-solid fa-calendar"></i> <strong>Période :</strong> Mars à Juin 2027</li>
+            <li><i class="fa-solid fa-calendar"></i> <strong>Période :</strong> Février à Août 2027</li>
             <li><i class="fa-solid fa-laptop-code"></i> <strong>Option :</strong> SLAM (Développement logiciel / Web)</li>
           </ul>
           <a href="#contact" class="btn btn-outline-cyan btn-liquid">Me proposer une opportunité</a>
@@ -104,7 +102,6 @@
       <div class="timeline-tree">
         <div class="timeline-line"></div>
 
-        <!-- 1. BTS SIO CNED : Droite -->
         <div class="timeline-row right">
           <div class="timeline-badge-date liquid-pill">Sept. 2026 - En cours</div>
           <div class="timeline-marker"></div>
@@ -118,7 +115,6 @@
           </div>
         </div>
 
-        <!-- 2. Expérience Carrefour : Gauche -->
         <div class="timeline-row left">
           <div class="timeline-badge-date liquid-pill">Été 2026</div>
           <div class="timeline-marker"></div>
@@ -131,7 +127,6 @@
           </div>
         </div>
 
-        <!-- 3. Première année BTS à l'ESUPEC Cholet : Droite -->
         <div class="timeline-row right">
           <div class="timeline-badge-date liquid-pill">2025 - 2026</div>
           <div class="timeline-marker"></div>
@@ -144,7 +139,6 @@
           </div>
         </div>
 
-        <!-- 4. Bac Pro SN : Gauche -->
         <div class="timeline-row left">
           <div class="timeline-badge-date liquid-pill">2025</div>
           <div class="timeline-marker"></div>
@@ -171,7 +165,7 @@
           <h3 class="skills-group-title">Développement Web & Logiciel</h3>
           <div class="skills-tiles-grid">
             <div class="skill-tile liquid-card"><i class="fa-brands fa-python skill-icon" style="color: #387eb8;"></i><span>Python</span></div>
-            <div class="skill-tile liquid-card"><i class="fa-solid fa-code skill-icon" style="color: #00599c;"></i><span>C++</span></div>
+            <div class="skill-tile liquid-card"><i class="fa-solid fa-code skill-icon" style="color: #9b4f96;"></i><span>C#</span></div>
             <div class="skill-tile liquid-card"><i class="fa-brands fa-php skill-icon" style="color: #777bb4;"></i><span>PHP</span></div>
             <div class="skill-tile liquid-card"><i class="fa-brands fa-html5 skill-icon" style="color: #e34f26;"></i><span>HTML5</span></div>
             <div class="skill-tile liquid-card"><i class="fa-brands fa-css3-alt skill-icon" style="color: #1572b6;"></i><span>CSS3</span></div>
@@ -210,7 +204,7 @@
       </div>
     </section>
 
-    <!-- Certifications (Carrousel Vertical) -->
+    <!-- Certifications (Automatisé depuis data.json) -->
     <section id="certifications" class="section-container reveal">
       <div class="section-header-top">
         <span class="category-indicator">FORMATION COMPLÉMENTAIRE</span>
@@ -219,75 +213,12 @@
 
       <div class="v-carousel-wrapper">
         <p class="v-carousel-hint"><i class="fa-solid fa-arrows-up-down"></i> Utilisez la <strong>molette de la souris</strong> ou cliquez pour faire défiler</p>
-
-        <div class="v-carousel" id="certifCarousel">
-          <!-- Certif 1 : HTML5 & CSS3 -->
-          <div class="certif-card liquid-card v-slide" data-index="0">
-            <div class="certif-logo-wrap">
-              <div class="certif-logo-oc">
-                <i class="fa-solid fa-certificate"></i>
-                <span>OPENCLASSROOMS</span>
-              </div>
-            </div>
-            <div class="certif-content">
-              <div class="certif-header">
-                <h3>Développement Web HTML5 & CSS3</h3>
-                <span class="badge-status-green">Obtenue</span>
-              </div>
-              <p class="certif-desc">
-                Certification attestant de la capacité à concevoir un site web complet en HTML5 et CSS3, en produisant un code structuré, sémantique, responsive et conforme aux standards du Web.
-              </p>
-              <span class="certif-meta">OpenClassrooms - Juin 2026</span>
-            </div>
-          </div>
-
-          <!-- Certif 2 : WordPress 6 -->
-          <div class="certif-card liquid-card v-slide" data-index="1">
-            <div class="certif-logo-wrap">
-              <div class="certif-logo-oc" style="background: #21759b;">
-                <i class="fa-brands fa-wordpress"></i>
-                <span>OPENCLASSROOMS</span>
-              </div>
-            </div>
-            <div class="certif-content">
-              <div class="certif-header">
-                <h3>Créez votre premier site avec WordPress 6</h3>
-                <span class="badge-status-green">Obtenue</span>
-              </div>
-              <p class="certif-desc">
-                Installation, configuration et administration d'un site complet sous WordPress 6 : gestion des thèmes, des extensions (plugins), de l'éditeur de blocs Gutenberg et optimisation des contenus.
-              </p>
-              <span class="certif-meta">OpenClassrooms - 2026</span>
-            </div>
-          </div>
-
-          <!-- Certif 3 : Prochaine certification -->
-          <div class="certif-card liquid-card v-slide" data-index="2">
-            <div class="certif-logo-wrap">
-              <div class="certif-logo-oc" style="background: rgba(255, 255, 255, 0.08); box-shadow: none;">
-                <i class="fa-solid fa-hourglass-half" style="color: var(--text-muted);"></i>
-                <span style="color: var(--text-muted);">À VENIR</span>
-              </div>
-            </div>
-            <div class="certif-content">
-              <div class="certif-header">
-                <h3>Certifications complémentaires</h3>
-                <span class="badge-status-pending">En cours d'acquisition</span>
-              </div>
-              <p class="certif-desc">
-                De nouvelles certifications techniques (programmation orientée objet, frameworks back-end et bases de données avancées) seront ajoutées au fil de mon cursus.
-              </p>
-              <span class="certif-meta">Objectif 2027</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Indicateurs de position -->
+        <div class="v-carousel" id="certifCarousel"></div>
         <div class="v-carousel-dots" id="carouselDots"></div>
       </div>
     </section>
 
-    <!-- Projets -->
+    <!-- Projets (Automatisé depuis data.json) -->
     <section id="projets" class="section-container reveal">
       <div class="section-header-top">
         <span class="category-indicator">TRAVAUX & RÉALISATIONS</span>
@@ -301,79 +232,7 @@
         <button class="filter-tab btn-liquid" data-filter="perso">Personnel</button>
       </div>
 
-      <div class="projects-grid">
-        <!-- Projet 1 : Académique -->
-        <div class="project-box liquid-card" data-category="scolaire">
-          <div class="project-img-container">
-            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&auto=format&fit=crop&q=80" alt="Atelier professionnel">
-            <span class="tag-context liquid-pill">Projet académique</span>
-          </div>
-          <div class="project-info">
-            <span class="date-lbl">Année 2026 - 2027</span>
-            <h3>Atelier de Développement Logiciel (BTS SIO)</h3>
-            <p>Cette activité académique n'a pas encore débuté. Les consignes, le cahier des charges et la réalisation technique seront mis en ligne dès le lancement du projet par l'établissement.</p>
-            <div class="tech-pills">
-              <span>BTS SIO SLAM</span><span>En attente</span>
-            </div>
-            <div class="project-actions">
-              <button class="btn btn-secondary-sm btn-liquid" disabled style="opacity: 0.5; cursor: not-allowed;">
-                <i class="fa-brands fa-github"></i> Dépôt à venir
-              </button>
-              <button class="btn btn-purple-sm btn-liquid open-modal" data-target="modal-projet-1">
-                <i class="fa-solid fa-circle-info"></i> Plus d'infos
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Projet 2 : Professionnel -->
-        <div class="project-box liquid-card" data-category="pro">
-          <div class="project-img-container">
-            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=600&auto=format&fit=crop&q=80" alt="Entreprise">
-            <span class="tag-context liquid-pill">Projet professionnel</span>
-          </div>
-          <div class="project-info">
-            <span class="date-lbl">Février - Août 2027</span>
-            <h3>Mission technique en entreprise (Stage 1re année)</h3>
-            <p>Ce projet professionnel sera réalisé au cours de mon premier stage en entreprise. Il comprendra la réponse à un besoin métier réel en développement d'applications ou intégration web.</p>
-            <div class="tech-pills">
-              <span>Stage 1re année</span><span>Mission pro</span>
-            </div>
-            <div class="project-actions">
-              <button class="btn btn-secondary-sm btn-liquid" disabled style="opacity: 0.5; cursor: not-allowed;">
-                <i class="fa-brands fa-github"></i> Dépôt à venir
-              </button>
-              <button class="btn btn-purple-sm btn-liquid open-modal" data-target="modal-projet-2">
-                <i class="fa-solid fa-circle-info"></i> Plus d'infos
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Projet 3 : Roblox -->
-        <div class="project-box liquid-card" data-category="perso">
-          <div class="project-img-container">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80" alt="Jeu Vidéo Roblox">
-            <span class="tag-context liquid-pill">Projet personnel</span>
-          </div>
-          <div class="project-info">
-            <span class="date-lbl">En cours de développement</span>
-            <h3>Création d'un Jeu Vidéo Multijoueur (Roblox Studio)</h3>
-            <p>Conception d'un jeu interactif sous Roblox Studio : logique événementielle en Lua, synchronisation client-serveur et interface utilisateur adaptative.</p>
-            <div class="tech-pills">
-              <span>Lua</span><span>Roblox Studio</span><span>Game Design</span>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/cedric-retureau/roblox-project-scripts" target="_blank" class="btn btn-secondary-sm btn-liquid">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-              <button class="btn btn-purple-sm btn-liquid open-modal" data-target="modal-projet-roblox">
-                <i class="fa-solid fa-circle-info"></i> Plus d'infos
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="projects-grid" id="projectsContainer"></div>
     </section>
 
     <!-- Contact -->
@@ -410,19 +269,19 @@
             <i class="fa-brands fa-linkedin purple-icon"></i>
             <div>
               <h4>LinkedIn</h4>
-              <p><a href="https://linkedin.com/in/cedric-retureau" target="_blank">https://www.linkedin.com/in/cedric-retureau//</a></p>
+              <p><a href="https://linkedin.com/in/cedric-retureau" target="_blank">linkedin.com/in/cedric-retureau</a></p>
             </div>
           </div>
           <div class="c-row">
             <i class="fa-brands fa-github purple-icon"></i>
             <div>
               <h4>GitHub</h4>
-              <p><a href="https://github.com/Cedric-Ret" target="_blank">https://github.com/Cedric-Ret</a></p>
+              <p><a href="https://github.com/cedric-retureau" target="_blank">github.com/cedric-retureau</a></p>
             </div>
           </div>
         </div>
 
-        <form class="liquid-card contact-form" action="https://formspree.io/f/mnpqgepy" method="POST">
+        <form class="liquid-card contact-form" action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST">
           <div class="field">
             <label for="name">Votre nom</label>
             <input type="text" id="name" name="name" placeholder="Nom et Prénom" required>
@@ -445,7 +304,7 @@
     </footer>
   </div>
 
-  <!-- MODALE EN SAVOIR PLUS : BTS SIO CNED -->
+  <!-- MODALE BTS SIO CNED -->
   <div class="modal-backdrop" id="modal-btssio-cned">
     <div class="modal-box liquid-card">
       <button class="close-btn">&times;</button>
@@ -455,113 +314,24 @@
 
       <h4>Présentation de l'option SLAM</h4>
       <p class="modal-txt">
-        L'option <strong>SLAM</strong> (Solutions Logicielles et Applications Métiers) forme à la conception, au développement, au déploiement et à la maintenance de solutions informatiques répondant aux besoins organisationnels.
+        L'option <strong>SLAM</strong> (Solutions Logicielles et Applications Métiers) forme à la conception, au développement, au déploiement et à la maintenance de solutions informatiques.
       </p>
 
       <h4>Axes techniques étudiés</h4>
       <ul class="skills-covered">
-        <li><i class="fa-solid fa-check purple-icon"></i> <strong>Programmation orientée objet :</strong> Conception d'architectures logicielles modulaires, lisibles et maintenables.</li>
-        <li><i class="fa-solid fa-check purple-icon"></i> <strong>Développement Web full-stack :</strong> Création d'interfaces dynamiques et intégration de logiques applicatives sécurisées.</li>
-        <li><i class="fa-solid fa-check purple-icon"></i> <strong>Gestion de bases de données :</strong> Modélisation conceptuelle (MCD/MLD) et écriture de requêtes SQL optimisées.</li>
-        <li><i class="fa-solid fa-check purple-icon"></i> <strong>Cybersécurité & RGPD :</strong> Protection des données, contrôle des accès et validation des entrées utilisateurs.</li>
+        <li><i class="fa-solid fa-check purple-icon"></i> <strong>Programmation orientée objet :</strong> Architectures logicielles modulaires en C# et Python.</li>
+        <li><i class="fa-solid fa-check purple-icon"></i> <strong>Développement Web :</strong> Interfaces réactives et logiques applicatives sécurisées.</li>
+        <li><i class="fa-solid fa-check purple-icon"></i> <strong>Bases de données :</strong> Modélisation conceptuelle (MCD/MLD) et SQL.</li>
       </ul>
 
-      <h4>Méthodologie & Autonomie</h4>
-      <p class="modal-txt">
-        Suivre cette formation à distance via le CNED atteste d'une grande rigueur personnelle, d'une capacité d'auto-formation soutenue et d'une gestion autonome du temps de travail sur des projets complexes.
-      </p>
-
       <div class="modal-footer-btns">
-        <a href="#projets" class="btn btn-primary btn-liquid modal-anchor-link"><i class="fa-solid fa-folder-open"></i> Découvrir mes projets associés</a>
+        <a href="#projets" class="btn btn-primary btn-liquid modal-anchor-link"><i class="fa-solid fa-folder-open"></i> Découvrir mes projets</a>
       </div>
     </div>
   </div>
 
-  <!-- MODALES DE DETAILS PROJETS -->
-  <div class="modal-backdrop" id="modal-projet-1">
-    <div class="modal-box liquid-card">
-      <button class="close-btn">&times;</button>
-      <span class="badge-tag liquid-pill">Projet académique</span>
-      <h2>Atelier de Développement Logiciel (BTS SIO)</h2>
-      <p class="modal-period">En attente de sujet</p>
-
-      <h4>Statut de l'activité</h4>
-      <p class="modal-txt">
-        Cette réalisation académique sera initiée au cours du semestre dans le cadre des ateliers professionnels encadrés. Elle portera sur la conception d'une solution applicative complète (spécifications, modélisation de base de données et développement).
-      </p>
-
-      <h4>Objectifs visés</h4>
-      <ul class="skills-covered">
-        <li><i class="fa-solid fa-clock purple-icon"></i> Analyse des besoins et rédaction du cahier des charges fonctionnel.</li>
-        <li><i class="fa-solid fa-clock purple-icon"></i> Conception du modèle de données et requêtage SQL.</li>
-        <li><i class="fa-solid fa-clock purple-icon"></i> Programmation de l'application et mise en place des tests unitaires.</li>
-      </ul>
-
-      <div class="modal-footer-btns">
-        <button class="btn btn-secondary btn-liquid" disabled style="opacity: 0.6; cursor: not-allowed;">
-          <i class="fa-solid fa-hourglass-start"></i> En attente du sujet officiel
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="modal-projet-2">
-    <div class="modal-box liquid-card">
-      <button class="close-btn">&times;</button>
-      <span class="badge-tag liquid-pill">Projet professionnel</span>
-      <h2>Mission technique en entreprise (Stage 1re année)</h2>
-      <p class="modal-period">Prévu entre Février et Août 2027</p>
-
-      <h4>Cadre de réalisation</h4>
-      <p class="modal-txt">
-        Ce projet s'inscrira dans le cadre de mon stage conventionné de 4 à 5 semaines en entreprise. Il visera à répondre à une problématique informatique concrète au sein d'une équipe de développement ou d'une DSI.
-      </p>
-
-      <h4>Domaines d'intervention prévus</h4>
-      <ul class="skills-covered">
-        <li><i class="fa-solid fa-check purple-icon"></i> Participation au développement, à l'évolution ou à la refonte d'outils web ou logiciels.</li>
-        <li><i class="fa-solid fa-check purple-icon"></i> Intégration dans les processus de travail de l'entreprise (gestion de versions, méthodes agiles).</li>
-        <li><i class="fa-solid fa-check purple-icon"></i> Rédaction de la documentation technique et accompagnement utilisateur.</li>
-      </ul>
-
-      <div class="modal-footer-btns">
-        <a href="#contact" class="btn btn-primary btn-liquid modal-anchor-link"><i class="fa-solid fa-handshake"></i> Proposer un sujet de stage</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop" id="modal-projet-roblox">
-    <div class="modal-box liquid-card">
-      <button class="close-btn">&times;</button>
-      <span class="badge-tag liquid-pill">Projet personnel</span>
-      <h2>Développement d'un Jeu Multijoueur (Roblox Studio)</h2>
-      <p class="modal-period">Projet en cours</p>
-
-      <div class="modal-screenshots">
-        <h4>Aperçu du jeu & environnement</h4>
-        <div class="screenshots-grid">
-          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&auto=format&fit=crop&q=80" alt="Scène du jeu">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=80" alt="UI en jeu">
-        </div>
-      </div>
-      
-      <h4>Contexte & objectifs détaillés</h4>
-      <p class="modal-txt">
-        Conception d'un jeu vidéo d'action/aventure multijoueur en ligne. Réalisé sous le moteur Roblox Studio, le projet exploite les principes de la programmation orientée objet en Lua et gère les interactions synchronisées en temps réel entre de multiples joueurs.
-      </p>
-
-      <h4>Acquis techniques & fonctionnalités</h4>
-      <ul class="skills-covered">
-        <li><i class="fa-solid fa-check purple-icon"></i> <strong>Logique en Lua :</strong> Conception des mécaniques de gameplay, gestion des collisions et animations de personnages.</li>
-        <li><i class="fa-solid fa-check purple-icon"></i> <strong>Modèle Client/Serveur :</strong> Utilisation des RemoteEvents pour la validation sécurisée côté serveur.</li>
-        <li><i class="fa-solid fa-check purple-icon"></i> <strong>Persistance des données :</strong> Intégration de DataStore pour l'inventaire et les statistiques.</li>
-      </ul>
-
-      <div class="modal-footer-btns">
-        <a href="https://github.com/cedric-retureau/roblox-project-scripts" class="btn btn-primary btn-liquid" target="_blank"><i class="fa-brands fa-github"></i> Scripts Lua (GitHub)</a>
-      </div>
-    </div>
-  </div>
+  <!-- Conteneur généré dynamiquement pour les modales de projets -->
+  <div id="dynamicModalsContainer"></div>
 
   <script src="script.js"></script>
 </body>
