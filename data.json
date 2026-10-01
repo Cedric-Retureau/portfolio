@@ -1,0 +1,93 @@
+{
+  "certifications": [
+    {
+      "titre": "Développement Web HTML5 & CSS3",
+      "organisme": "OPENCLASSROOMS",
+      "date": "Juin 2026",
+      "statut": "Obtenue",
+      "description": "Certification attestant de la capacité à concevoir un site web complet en HTML5 et CSS3, en produisant un code structuré, sémantique, responsive et conforme aux standards du Web.",
+      "icone": "fa-certificate",
+      "couleur": "#7451eb"
+    },
+    {
+      "titre": "Créez votre premier site avec WordPress 6",
+      "organisme": "OPENCLASSROOMS",
+      "date": "2026",
+      "statut": "Obtenue",
+      "description": "Installation, configuration et administration d'un site complet sous WordPress 6 : gestion des thèmes, des extensions (plugins) et optimisation des contenus.",
+      "icone": "fa-wordpress",
+      "couleur": "#21759b"
+    },
+    {
+      "titre": "Certifications complémentaires",
+      "organisme": "À VENIR",
+      "date": "Objectif 2027",
+      "statut": "En cours",
+      "description": "De nouvelles certifications techniques (programmation orientée objet, frameworks back-end et bases de données avancées) seront ajoutées au fil de mon cursus.",
+      "icone": "fa-hourglass-half",
+      "couleur": "rgba(255, 255, 255, 0.08)"
+    }
+  ],
+  "projets": [
+    {
+      "id": "projet-academique",
+      "categorie": "scolaire",
+      "tag": "Projet académique",
+      "date": "Année 2026 - 2027",
+      "titre": "Atelier de Développement Logiciel (BTS SIO)",
+      "resume": "Cette activité académique n'a pas encore débuté. Les consignes et la réalisation technique seront mises en ligne dès le lancement par l'établissement.",
+      "techs": ["BTS SIO SLAM", "En attente"],
+      "imageMiniature": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&auto=format&fit=crop&q=80",
+      "details": {
+        "contexte": "Cette réalisation académique sera initiée au cours du semestre dans le cadre des ateliers professionnels encadrés.",
+        "points": [
+          "Analyse des besoins et rédaction du cahier des charges.",
+          "Conception du modèle de données et requêtage SQL.",
+          "Programmation applicative et tests unitaires."
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "projet-pro",
+      "categorie": "pro",
+      "tag": "Projet professionnel",
+      "date": "Février - Août 2027",
+      "titre": "Mission technique en entreprise (Stage 1re année)",
+      "resume": "Ce projet professionnel sera réalisé au cours de mon premier stage en entreprise, répondant à un besoin métier réel en développement ou intégration web.",
+      "techs": ["Stage 1re année", "Mission pro"],
+      "imageMiniature": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=600&auto=format&fit=crop&q=80",
+      "details": {
+        "contexte": "Projet mené dans le cadre de mon stage conventionné de 4 à 5 semaines en entreprise.",
+        "points": [
+          "Participation au développement ou à l'évolution d'outils web/logiciels.",
+          "Intégration aux processus de l'entreprise (Git, agilité).",
+          "Documentation technique et accompagnement."
+        ],
+        "images": []
+      }
+    },
+    {
+      "id": "projet-roblox",
+      "categorie": "perso",
+      "tag": "Projet personnel",
+      "date": "En cours de développement",
+      "titre": "Création d'un Jeu Vidéo Multijoueur (Roblox Studio)",
+      "resume": "Conception d'un jeu interactif sous Roblox Studio : logique événementielle en Lua, synchronisation client-serveur et interface adaptative.",
+      "techs": ["Lua", "Roblox Studio", "Game Design"],
+      "imageMiniature": "image-projets/roblox/capture1.jpg",
+      "details": {
+        "contexte": "Projet de jeu d'action multijoueur en ligne sous Roblox Studio, exploitant la programmation orientée objet en Lua et la synchronisation réseau en temps réel.",
+        "points": [
+          "Logique en Lua : mécaniques de gameplay, collisions et animations.",
+          "Modèle Client/Serveur : utilisation sécurisée des RemoteEvents.",
+          "Persistance des données : intégration de DataStore pour l'inventaire."
+        ],
+        "images": [
+          "image-projets/roblox/capture1.jpg",
+          "image-projets/roblox/capture2.jpg"
+        ]
+      }
+    }
+  ]
+}
