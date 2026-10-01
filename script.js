@@ -140,7 +140,14 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="tech-pills">
             ${p.techs.map((t) => `<span>${t}</span>`).join("")}
           </div>
-          <div class="project-actions">
+          <div class="project-actions ${p.hasGithub ? "has-github" : ""}">
+            ${
+              p.hasGithub
+                ? `<button class="btn btn-secondary-sm btn-liquid" disabled style="opacity: 0.5; cursor: not-allowed;">
+                    <i class="fa-brands fa-github"></i> Dépôt à venir
+                   </button>`
+                : ""
+            }
             <button class="btn btn-purple-sm btn-liquid open-modal" data-target="modal-${p.id}">
               <i class="fa-solid fa-circle-info"></i> Plus d'infos
             </button>
